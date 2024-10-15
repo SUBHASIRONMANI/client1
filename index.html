@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RP Sarathy Institute of Technology</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        /* Header Styling */
+        header {
+            background-image: url('https://example.com/technology-campus.jpg'); /* Replace with actual image URL */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            color: #ff6600; /* Changed color for the college name */
+        }
+
+        header p {
+            font-size: 1.5rem;
+            margin-top: 10px;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px 0;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 10px 15px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #ff6600;
+        }
+
+        /* About Section */
+        section#about {
+            background-color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        section#about h2 {
+            color: #003366;
+            font-size: 2.5rem;
+        }
+
+        section#about p {
+            font-size: 1.2rem;
+            color: #333;
+            margin: 20px auto;
+            max-width: 600px;
+        }
+
+        /* Courses Section */
+        section#courses {
+            background-color: #003366;
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        section#courses h2 {
+            font-size: 2.5rem;
+        }
+
+        section#courses .courses-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        section#courses .courses-list div {
+            background-color: #ff6600;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            flex-basis: 30%;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        section#courses .courses-list div h3 {
+            font-size: 1.5rem;
+        }
+
+        section#courses .courses-list div p {
+            font-size: 1rem;
+            color: #f0f0f0;
+        }
+
+        /* Placement Section */
+        section#placement {
+            padding: 50px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        section#placement h2 {
+            font-size: 2.5rem;
+            color: #003366;
+        }
+
+        section#placement p, section#placement ul {
+            font-size: 1.2rem;
+            color: #333;
+            margin: 15px 0;
+        }
+
+        /* Contact Section */
+        section#contact {
+            padding: 50px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        section#contact h2 {
+            font-size: 2.5rem;
+            color: #003366;
+        }
+
+        section#contact p {
+            font-size: 1.2rem;
+            margin: 15px 0;
+        }
+
+        section#contact input, section#contact textarea {
+            width: 300px;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        section#contact button {
+            padding: 10px 20px;
+            background-color: #003366;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        section#contact button:hover {
+            background-color: #ff6600;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        /* Chatbot Container */
+        .chatbot-container {
+            position: fixed;
+            bottom: 10px;
+            right: 20px;
+            width: 250px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .chatbot-header {
+            background-color: #003366;
+            color: white;
+            padding: 10px;
+            border-radius: 10px 10px 0 0;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        .chatbot-body {
+            height: 50px;
+            padding: 10px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chatbot-message {
+            background-color: #f1f1f1;
+            padding: 8px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            width: 70%;
+        }
+
+        .chatbot-message.user {
+            background-color: #003366;
+            color: white;
+            margin-left: auto;
+        }
+
+        .chatbot-footer {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        .chatbot-footer input {
+            flex: 1;
+            padding: 8px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .chatbot-footer button {
+            background-color: #003366;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            margin-left: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .chatbot-footer button:hover {
+            background-color: #ff6600;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header with Inspiring Quote -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#placement">Placement</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <h1>RP Sarathy Institute of Technology</h1>
+        <p>“Empowering Tomorrow’s Innovators and Leaders”</p>
+    </header>
+
+    <!-- About Us Section -->
+    <section id="about">
+        <h2>About Us</h2>
+        <p>RP Sarathy Institute of Technology is dedicated to nurturing excellence in education, fostering innovation, and building a strong foundation for future professionals. We offer a vibrant learning environment where students can thrive academically and personally.</p>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses">
+        <h2>Our Programs</h2>
+        <div class="courses-list">
+            <div>
+                <h3>B.E. in Computer Science Engineering (CSE)</h3>
+                <p>Prepare for the future of technology with our CSE program, focusing on software development, data science, and AI.</p>
+            </div>
+            <div>
+                <h3>B.E. in Electronics and Communication Engineering (ECE)</h3>
+                <p>Explore cutting-edge technologies in communications, IoT, and embedded systems with our comprehensive ECE program.</p>
+            </div>
+            <div>
+                <h3>B.E. in Electrical and Electronics Engineering (EEE)</h3>
+                <p>Master the principles of electrical systems and smart grids in our specialized EEE program.</p>
+            </div>
+            <div>
+                <h3>B.E. in Mechanical Engineering (MECH)</h3>
+                <p>Build a solid foundation in mechanics, thermodynamics, and manufacturing processes with our MECH program.</p>
+            </div>
+            <div>
+                <h3>B.E. in Cybersecurity and AI</h3>
+                <p>Stay ahead of the digital curve by mastering the latest trends in cybersecurity and artificial intelligence.</p>
+            </div>
+            <div>
+                <h3>B.Tech in Information Technology (IT)</h3>
+                <p>Drive innovation in IT with hands-on experience in networking, web development, and data management.</p>
+            </div>
+            <div>
+                <h3>M.E. in Computer Science Engineering (CSE)</h3>
+                <p>Enhance your knowledge in advanced computing, algorithms, and research through our M.E. in CSE program.</p>
+            </div>
+            <div>
+                <h3>M.E. in Electronics and Communication Engineering (ECE)</h3>
+                <p>Specialize in advanced communication systems, VLSI design, and signal processing with our M.E. in ECE program.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Placement Section -->
+    <section id="placement">
+        <h2>Placement Details</h2>
+        <p>At RP Sarathy Institute of Technology, we are committed to ensuring that our students have the best opportunities for career advancement. Our dedicated placement cell works tirelessly to connect students with leading companies in various sectors.</p>
+        <h3>Key Highlights:</h3>
+        <ul>
+            <li><strong>Highest Package:</strong> ₹12 LPA</li>
+            <li><strong>Average Package:</strong> ₹6 LPA</li>
+            <li><strong>Companies Visited:</strong> Infosys, Wipro, TCS, Cognizant, and many more.</li>
+            <li><strong>Internship Opportunities:</strong> Various internships offered during the course duration.</li>
+            <li><strong>Soft Skill Training:</strong> Regular workshops on communication, resume building, and interview preparation.</li>
+        </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>For admissions and inquiries, reach out to us at:</p>
+        <p><strong>Address:</strong> Poosaripatty, Kadayampatty(T.K), Salem-636305, Tamil Nadu, India</p>
+        <p><strong>Email:</strong> <a href="mailto:info@rpsit.ac.in">info@rpsit.ac.in</a></p>
+        <p><strong>Phone:</strong> 93449 72275, 73977 56003</p>
+        <p>Or fill out the form below:</p>
+        <form action="#">
+            <input type="text" name="name" placeholder="Your Name" required><br>
+            <input type="email" name="email" placeholder="Your Email" required><br>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea><br>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 RP Sarathy Institute of Technology. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Chatbot HTML Structure -->
+    <div class="chatbot-container">
+        <div class="chatbot-header">
+            Ask Us
+        </div>
+        <div class="chatbot-body" id="chatbotBody">
+            <!-- Messages will appear here -->
+        </div>
+        <div class="chatbot-footer">
+            <input type="text" id="chatbotInput" placeholder="Ask something...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        const chatbotBody = document.getElementById('chatbotBody');
+        const chatbotInput = document.getElementById('chatbotInput');
+
+        // Function to add messages to chat window
+        function addMessage(text, user = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('chatbot-message');
+            if (user) {
+                messageDiv.classList.add('user');
+            }
+            messageDiv.textContent = text;
+            chatbotBody.appendChild(messageDiv);
+            chatbotBody.scrollTop = chatbotBody.scrollHeight; // Auto scroll to the bottom
+        }
+
+        // Function to send user message and respond
+        function sendMessage() {
+            const userInput = chatbotInput.value;
+            if (userInput.trim() === '') return;
+            
+            addMessage(userInput, true); // Add user message
+            chatbotInput.value = ''; // Clear input
+
+            // Simple logic to respond to specific questions
+            let response;
+            const lowerCaseInput = userInput.toLowerCase();
+            if (lowerCaseInput.includes('course') || lowerCaseInput.includes('program')) {
+                response = 'We offer B.E. in CSE, ECE, EEE, MECH, Cybersecurity & AI, B.Tech IT, and M.E. in CSE & ECE.';
+            } else if (lowerCaseInput.includes('admission') || lowerCaseInput.includes('apply')) {
+                response = 'For admissions, contact us at 93449 72275 or 73977 56003.';
+            } else if (lowerCaseInput.includes('contact') || lowerCaseInput.includes('address')) {
+                response = 'Our address: Poosaripatty, Kadayampatty(T.K), Salem-636305, Tamil Nadu, India.';
+            } else if (lowerCaseInput.includes('email')) {
+                response = 'You can email us at info@rpsit.ac.in.';
+            } else if (lowerCaseInput.includes('placement') || lowerCaseInput.includes('job')) {
+                response = 'Our placement cell connects students with top companies. Highest package is ₹12 LPA.';
+            } else {
+                response = 'Sorry, I didn\'t understand that. Please ask about courses, admissions, placements, or contact details.';
+            }
+
+            // Add response from chatbot
+            setTimeout(() => addMessage(response), 500);
+        }
+    </script>
+
+</body>
+</html>
