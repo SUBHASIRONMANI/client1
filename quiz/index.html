@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Quiz App</title>
+</head>
+<body>
+    <div id="start-page" class="container">
+        <h1>Quiz App</h1>
+        <button onclick="startQuiz()">Start Quiz</button>
+    </div>
+
+    <div id="instruction-page" class="container hidden">
+        <h2>Instructions</h2>
+        <p>1. You will be presented with 30 questions.</p>
+        <p>2. Choose the correct answer for each question.</p>
+        <p>3. Click "Next" after selecting an answer.</p>
+        <p>4. Your score will be displayed at the end of the quiz.</p>
+        <button onclick="beginQuiz()">Begin Quiz</button>
+    </div>
+
+    <div id="quiz-container" class="container hidden">
+        <h2 id="question"></h2>
+        <div id="options"></div>
+        <div id="feedback" class="hidden"></div>
+        <button id="next-button" class="hidden" onclick="nextQuestion()">Next</button>
+    </div>
+
+    <div id="result-container" class="container hidden">
+        <h2>Your Score</h2>
+        <p id="score"></p>
+        <button onclick="restartQuiz()">Restart Quiz</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
